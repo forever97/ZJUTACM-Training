@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>树状数组 | ZJUTACM Training</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="ZJUTACM">
+    
+    <link rel="preload" href="/ZJUTACM-Training/assets/css/0.styles.0f2c8ff8.css" as="style"><link rel="preload" href="/ZJUTACM-Training/assets/js/app.da0f2da0.js" as="script"><link rel="preload" href="/ZJUTACM-Training/assets/js/2.ab6cf972.js" as="script"><link rel="preload" href="/ZJUTACM-Training/assets/js/9.0dfc5c5b.js" as="script"><link rel="prefetch" href="/ZJUTACM-Training/assets/js/10.ae9527af.js"><link rel="prefetch" href="/ZJUTACM-Training/assets/js/11.b84cbbf9.js"><link rel="prefetch" href="/ZJUTACM-Training/assets/js/3.a4e6db6c.js"><link rel="prefetch" href="/ZJUTACM-Training/assets/js/4.8fd18c5d.js"><link rel="prefetch" href="/ZJUTACM-Training/assets/js/5.b00b2f95.js"><link rel="prefetch" href="/ZJUTACM-Training/assets/js/6.6cd8233a.js"><link rel="prefetch" href="/ZJUTACM-Training/assets/js/7.f8b15fd4.js"><link rel="prefetch" href="/ZJUTACM-Training/assets/js/8.ecb3d46c.js">
+    <link rel="stylesheet" href="/ZJUTACM-Training/assets/css/0.styles.0f2c8ff8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ZJUTACM-Training/" class="home-link router-link-active"><!----> <span class="site-name">ZJUTACM Training</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ZJUTACM-Training/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/ZJUTACM-Training/dataStructure/" class="nav-link router-link-active">
+  数据结构
+</a></div><div class="nav-item"><a href="/ZJUTACM-Training/algorithm/" class="nav-link">
+  算法
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/ZJUTACM-Training/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/ZJUTACM-Training/dataStructure/" class="nav-link router-link-active">
+  数据结构
+</a></div><div class="nav-item"><a href="/ZJUTACM-Training/algorithm/" class="nav-link">
+  算法
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/ZJUTACM-Training/dataStructure/" aria-current="page" class="sidebar-link">前言</a></li><li><a href="/ZJUTACM-Training/dataStructure/fenwickTree.html" aria-current="page" class="active sidebar-link">树状数组</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ZJUTACM-Training/dataStructure/fenwickTree.html#学习目标" class="sidebar-link">学习目标</a></li><li class="sidebar-sub-header"><a href="/ZJUTACM-Training/dataStructure/fenwickTree.html#题目清单" class="sidebar-link">题目清单</a></li></ul></li><li><a href="/ZJUTACM-Training/dataStructure/unionFindSet.html" class="sidebar-link">并查集</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="学习目标"><a href="#学习目标" class="header-anchor">#</a> 学习目标</h2> <p><strong>lowbit的理解，树状数组原理的理解</strong></p> <p><strong>树状数组的基础应用，泛化性</strong></p> <div class="language- extra-class"><pre><code>1. 下标偏移 (从零开始？负数开始？)
+2. 下标翻转，后缀和，后缀极值
+3. 如何O(1)清零 (各类数据结构常用技巧，空间换时间)
+</code></pre></div><p><strong>树状数组上差分</strong></p> <div class="language- extra-class"><pre><code>1. 可加值区间修改单点求和
+2. 可加值区间修改区间求和
+</code></pre></div><p><strong>高维树状数组，高维偏序问题</strong></p> <p><strong>树状数组与分治查询</strong></p> <div class="language- extra-class"><pre><code>1. 树状数组上二分
+2. 树状数组上倍增
+</code></pre></div><p><strong>扫描线初步了解</strong></p> <p><strong>动态规划优化</strong></p> <div class="language- extra-class"><pre><code>1. 前缀类型极值优化
+2. 计数类型区间可加值优化
+</code></pre></div><h2 id="题目清单"><a href="#题目清单" class="header-anchor">#</a> 题目清单</h2> <div class="custom-block tip"><p class="custom-block-title">ProblemList</p> <p>HDU 5975 An interesting game</p> <p>HDU 1556 Color the ball</p> <p>POJ 3468 A simple problem with integers</p> <p>BZOJ 2789 letter</p> <p>POJ 3378 Crazy Thairs</p> <p>POI 2007 立方体大作战tet</p> <p>UVA 10635 Prince and Princess</p> <p>HDU 3030 Increasing Speed Limits</p> <p>POI 2007 堆积木Klo</p> <p>POJ 2155 Matrix</p> <p>SPOJ 227 Ordering the Soldiers</p> <p>TJU 3243 Blocked Road</p> <p>POJ 2464 Brownie Points II</p> <p>Codeforces 786C Till I Collapse</p> <p>SCOI 2014 方伯伯的玉米田</p> <p>NOI 2008 糖果雨</p> <p>Codeforces 316E3 Summer Homework</p></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/ZJUTACM-Training/dataStructure/" class="prev router-link-active">
+        前言
+      </a></span> <span class="next"><a href="/ZJUTACM-Training/dataStructure/unionFindSet.html">
+        并查集
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/ZJUTACM-Training/assets/js/app.da0f2da0.js" defer></script><script src="/ZJUTACM-Training/assets/js/2.ab6cf972.js" defer></script><script src="/ZJUTACM-Training/assets/js/9.0dfc5c5b.js" defer></script>
+  </body>
+</html>
